@@ -1,5 +1,5 @@
-<span class="label label-{if $i->emphasis eq '1'}info{elseif $i->emphasis eq '2'}success{elseif $i->emphasis eq '3'}error{else}inverse{/if}">{if $i->emphasis eq '1'}Milestone:{elseif $i->emphasis eq '2'}Cool!{elseif $i->emphasis eq '3'}Hey!{else}Insight:{/if}</span> 
-                <i class="icon-{if $i->emphasis eq '1'}time{elseif $i->emphasis eq '2'}thumbs-up{elseif $i->emphasis eq '3'}warning-sign{else}star{/if}"></i>
+<span class="label label-{if $i->emphasis eq '1'}inverse{elseif $i->emphasis eq '2'}success{elseif $i->emphasis eq '3'}error{else}info{/if}">{if $i->emphasis eq '1'}Milestone:{elseif $i->emphasis eq '2'}Cool!{elseif $i->emphasis eq '3'}Hey!{else}FYI:{/if}</span> 
+                <i class="icon-star-empty"></i>
                 {$i->text}
 
 <div class="pull-right detail-btn"><button class="btn-mini" data-toggle="collapse" data-target="#chart-{$i->id}"><i class="icon-signal"></i></button></div>
@@ -31,11 +31,12 @@ function drawChart{/literal}{$i->id}() {literal}{
       chartType: 'LineChart',
       dataTable: count_history_data_{/literal}{$i->id}{literal},
       options: {
-          width: 625,
-          height: 250,
+          width: 800,
+          height: 200,
           legend: "none",
           interpolateNulls: true,
-          pointSize: 2,
+          pointSize: 4,
+          colors : ['#31C22D'],
           hAxis: {
               baselineColor: '#eee',
               format: 'MMM d',
