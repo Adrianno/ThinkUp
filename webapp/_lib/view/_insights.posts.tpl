@@ -16,7 +16,7 @@
 
         {* Show more link if there are more posts after the first one *}
         {if $smarty.foreach.bar.total gt 0 and $smarty.foreach.bar.first}
-            <div class="pull-right" style="margin-top : -12px;"><button class="btn-mini" data-toggle="collapse" data-target="#flashback-{$i->id}"><i class=" icon-chevron-down"></i></button></div>
+            <div class="pull-right detail-btn"><button class="btn-mini" data-toggle="collapse" data-target="#flashback-{$i->id}"><i class=" icon-chevron-down"></i></button></div>
         {/if}
 
         {* Close up hidden div if there is one *}

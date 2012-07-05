@@ -20,9 +20,11 @@
     <link href="./assets/css/bootstrap.css" rel="stylesheet">
     <style>
     {literal}
-      body {
-        padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+ 	         
+	  .detail-btn {
+	  	margin-top : -18px;
       }
+
     {/literal}
     </style>    
 

@@ -1,5 +1,5 @@
 
-    <div class="navbar navbar-fixed-top">
+    <div class="navbar">
       <div class="navbar-inner">
         <div class="container">
 
@@ -32,9 +32,11 @@
     <div id="main" class="container">
 
 {if sizeof($insights) eq 0}
-<div class="alert urgent">
-    <p>No insights are available! Get active on your network and check back later.</p>
+
+<div class="page-header">
+  <h1>ThinkUp doesn't have any insights for you yet. <small>Check back later, or click "Update Data".</small></h1>
 </div>
+
 {/if}
 
 
@@ -46,25 +48,32 @@
 	<div class="span3">
           <div class="sidebar-nav">
             <ul class="nav nav-list">
-              <li class="">{$i->date|relative_day|ucfirst}</li>
+              <li class="">
+              	{if $i->date|relative_day eq "today" }
+              		{if $instance->crawler_last_run eq 'realtime'}Updated in realtime{else}{$instance->crawler_last_run|relative_datetime|ucfirst} ago{/if}
+              	{else}
+              		{$i->date|relative_day|ucfirst}
+              	{/if}
+              </li>
             </ul>
           </div><!--/.well -->
 	</div><!--/span3-->
 
+
             {assign var='cur_date' value=$i->date}
             
         {else}
-        
-    <div class="span3">&nbsp;</div>    
-        
-        {/if}
-        
-        
+ 
+ 	<div class="span3">&nbsp;</div>       
+       
+        {/if}        
 
 	<div class="span9">
-        <div class="alert {if $i->emphasis eq '1'}alert-info{elseif $i->emphasis eq '2'}alert-success{elseif $i->emphasis eq '3'}alert-error{/if} {$i->emphasis}">
-            <p>
+	
+        <div class="alert {if $i->emphasis eq '1'}alert-info{elseif $i->emphasis eq '2'}alert-success{elseif $i->emphasis eq '3'}alert-error{/if} {$i->emphasis} insight-item">
 
+            <p>
+            
     
     <!-- begin related_data_type attachment data -->
                 {if $i->related_data_type eq 'users'}
@@ -81,18 +90,28 @@
         </div>
 	</div><!--/span9-->
 
+
    {/if}
 </div><!--/row-->
 {/foreach}
 
-  
-<div class="view-all" id="older-posts-div">
-  {if $next_page}
-    <a href="{$site_root_path}?{if $smarty.get.v}v={$smarty.get.v}&{/if}{if $smarty.get.u}u={$smarty.get.u}&{/if}{if $smarty.get.n}n={$smarty.get.n|urlencode}&{/if}page={$next_page}" id="next_page">&#60; Older</a>
-  {/if}
-  {if $last_page}
-    | <a href="{$site_root_path}?{if $smarty.get.v}v={$smarty.get.v}&{/if}{if $smarty.get.u}u={$smarty.get.u}&{/if}{if $smarty.get.n}n={$smarty.get.n|urlencode}&{/if}page={$last_page}" id="last_page">Newer &#62;</a>
-  {/if}
-</div>
+<div class="row">
+	<div class="span3">&nbsp;</div>
+	<div class="span9">
+		
+		<ul class="pager">
+		{if $next_page}
+		  <li class="previous">
+			<a href="{$site_root_path}?{if $smarty.get.v}v={$smarty.get.v}&{/if}{if $smarty.get.u}u={$smarty.get.u}&{/if}{if $smarty.get.n}n={$smarty.get.n|urlencode}&{/if}page={$next_page}" id="next_page" class="pull-left btn btn-small"><i class="icon-arrow-left"></i> Older</a>
+		  </li>
+		{/if}
+		{if $last_page}
+		  <li class="next">
+			<a href="{$site_root_path}?{if $smarty.get.v}v={$smarty.get.v}&{/if}{if $smarty.get.u}u={$smarty.get.u}&{/if}{if $smarty.get.n}n={$smarty.get.n|urlencode}&{/if}page={$last_page}" id="last_page" class="pull-right btn btn-small">Newer <i class="icon-arrow-right"></i></a>
+		  </li>
+		{/if}
+		</ul>
 
+	</div>
+</div>
   
