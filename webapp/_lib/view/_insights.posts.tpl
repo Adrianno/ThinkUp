@@ -1,3 +1,5 @@
+
+
 {if $i->slug eq 'posts_on_this_day_flashback'}
     {foreach from=$i->related_data key=uid item=p name=bar}
         {* Hide posts after the first one *}

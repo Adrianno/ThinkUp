@@ -2,9 +2,11 @@
     <div class="navbar navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container">
-          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-            <span class="icon-bar"></span>
-          </a>
+
+          <a href="{$site_root_path}{$logo_link}" class="brand pull-left"><span style="color : #00AEEF; font-weight : 800;">Think</span><span style="color : black; font-weight : 200;">Up</span></a>
+          {if $logged_in_user}<a href="{$site_root_path}crawler/updatenow.php{if $developer_log}?log=full{/if}" class="btn pull-left">Update Data</a>{/if}
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span class="icon-bar"></span></a>
+
           <div class="nav-collapse">
 
       {if $logged_in_user}            
@@ -22,10 +24,7 @@
 </ul>
       {/if}
           </div><!--/.nav-collapse -->
-          <a href="{$site_root_path}{$logo_link}" class="brand pull-left"><span style="color : #00AEEF; font-weight : 800;">Think</span><span style="color : black; font-weight : 200;">Up</span></a>
-          <a href="{$site_root_path}crawler/updatenow.php{if $developer_log}?log=full{/if}" class="btn pull-left">Update Data</a>
-
-        </div>
+		</div>
       </div>
     </div>
 
@@ -63,11 +62,9 @@
         
 
 	<div class="span9">
-        <div class="alert {if $i->emphasis eq '1'}alert-info{elseif $i->emphasis eq '2'}alert-success{elseif $i->emphasis eq '3'}alert-error{/if}">
+        <div class="alert {if $i->emphasis eq '1'}alert-info{elseif $i->emphasis eq '2'}alert-success{elseif $i->emphasis eq '3'}alert-error{/if} {$i->emphasis}">
             <p>
-            	<span class="label label-{if $i->emphasis eq '1'}info{elseif $i->emphasis eq '2'}success{elseif $i->emphasis eq '3'}error{/if}">{if $i->emphasis eq '1'}Milestone:{elseif $i->emphasis eq '2'}Cool!{elseif $i->emphasis eq '3'}Hey!{else}Insight:{/if}</span> 
-                <i class="icon-star"></i>
-                {$i->text}
+
     
     <!-- begin related_data_type attachment data -->
                 {if $i->related_data_type eq 'users'}

@@ -1,3 +1,6 @@
+<span class="label label-{if $i->emphasis eq '1'}info{elseif $i->emphasis eq '2'}success{elseif $i->emphasis eq '3'}error{else}inverse{/if}">{if $i->emphasis eq '1'}Milestone:{elseif $i->emphasis eq '2'}Cool!{elseif $i->emphasis eq '3'}Hey!{else}Insight:{/if}</span> 
+                <i class="icon-{if $i->emphasis eq '1'}time{elseif $i->emphasis eq '2'}thumbs-up{elseif $i->emphasis eq '3'}warning-sign{else}star{/if}"></i>
+                {$i->text}
 
 <div class="post">
   {if $post->post_text}
@@ -52,8 +55,9 @@
 </div>
 
 {if $i->slug eq 'geoencoded_replies'}
-<div align="right"><a href="javascript:;" title="See map of replies and shares" onclick="{literal}${/literal}('#map-{$i->id}').show(); return false;">see map...</a>&nbsp;&nbsp;</div>
-<div style="display:none" id="map-{$i->id}">
+
+<div class="pull-right" style="margin-top : -12px;"><button class="btn-minid detail-btn" data-toggle="collapse" data-target="#map-{$i->id}"><i class="icon-map-marker"></i></button></div>
+<div class="collapse in" id="map-{$i->id}">
 <script type="text/javascript" src="{$site_root_path}plugins/geoencoder/assets/js/iframe.js"></script>
 <iframe width="680" frameborder="0" src="{$site_root_path}plugins/geoencoder/map.php?pid={$post->post_id}&n=twitter&t=post" name="childframe" id="childframe" >
 </iframe>

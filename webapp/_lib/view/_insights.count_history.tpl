@@ -1,4 +1,6 @@
-
+<span class="label label-{if $i->emphasis eq '1'}info{elseif $i->emphasis eq '2'}success{elseif $i->emphasis eq '3'}error{else}inverse{/if}">{if $i->emphasis eq '1'}Milestone:{elseif $i->emphasis eq '2'}Cool!{elseif $i->emphasis eq '3'}Hey!{else}Insight:{/if}</span> 
+                <i class="icon-{if $i->emphasis eq '1'}time{elseif $i->emphasis eq '2'}thumbs-up{elseif $i->emphasis eq '3'}warning-sign{else}star{/if}"></i>
+                {$i->text}
 
 <div class="pull-right" style="margin-top : -12px;"><button class="btn-mini" data-toggle="collapse" data-target="#chart-{$i->id}"><i class="icon-signal"></i></button></div>
 

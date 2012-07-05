@@ -3,7 +3,6 @@
   {/if}
 
 
-
 {if $smarty.get.v eq "insights"}
 
 </div>
