@@ -593,9 +593,9 @@ pre code {
 }
 .label,
 .badge {
-  font-size: 10.998px;
+  font-size: 14px;
   font-weight: bold;
-  line-height: 14px;
+  line-height: 18px;
   color: #ffffff;
   vertical-align: baseline;
   white-space: nowrap;
@@ -1886,6 +1886,10 @@ input[type="submit"].btn.btn-mini {
 [class^="icon-"]:last-child,
 [class*=" icon-"]:last-child {
   *margin-left: 0;
+}
+[class^="icon-"]:hover,
+[class*=" icon-"]:hover {
+  background-image: url("../img/glyphicons-halflings-blue.png");
 }
 .icon-white {
   background-image: url("../img/glyphicons-halflings-white.png");
@@ -3408,7 +3412,7 @@ a.thumbnail:hover {
   padding: 9px;
 }
 .alert {
-  padding: 8px 35px 8px 14px;
+  padding: 0px 12px 8px 12px;
   margin-bottom: 18px;
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
   background-color: #d5f0fc;

@@ -43,7 +43,7 @@
         {/if}
 
     <div class="span9">
-        <div class="alert {if $i->emphasis eq '1'}alert-info{elseif $i->emphasis eq '2'}alert-success{elseif $i->emphasis eq '3'}alert-error{/if} {$i->emphasis} insight-item">
+        <div class="alert {if $i->emphasis eq '1'}alert-info{elseif $i->emphasis eq '2'}alert-info{elseif $i->emphasis eq '3'}alert-error{else}alert-success{/if} {$i->emphasis} insight-item">
             <p>
 
     <!-- begin related_data_type attachment data -->
