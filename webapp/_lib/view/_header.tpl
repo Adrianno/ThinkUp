@@ -37,10 +37,17 @@
         -webkit-border-radius: 1px;
         -moz-border-radius: 1px;
         border-radius: 1px;
+        border-bottom : 1px solid black;
+        border-right : 1px solid #333;
+    }
+
+    .alert .label {
+        margin-left : -12px;
+        z-index: 999;
     }
     
     .lead {
-        padding-left : 20px;
+        padding-left : 8px;
         margin-right : 10px;
     }
     
